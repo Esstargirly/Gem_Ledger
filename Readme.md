@@ -8,6 +8,17 @@ Built for the CruzHacks Gemma 4 Hackathon.
 
 Live app link: https://gem-ledger-frontend.onrender.com
 
+## How to use the app
+
+1. **Sign up** — go to the [live site](https://gem-ledger-frontend.onrender.com), click **Sign Up**, and enter your business name, email, and password.
+2. **Log in** — use the same email and password to log in from then on.
+3. **Add an entry** — on the Home page, type (or speak, in Chrome) what happened in your business
+4. **Click Add Entry** — Gemma 4 reads it and splits it into structured records (income and expenses), and shows a quick summary.
+5. **Check your Records page** — see every entry in a table, along with your total income, total expenses, and net profit.
+6. **Export a PDF** — on the Records page, click Export to download your records as a PDF you can share with a bank, cooperative, or accountant.
+7. **Manage your account** — visit Settings to see your business name and email, or log out.
+
+## How Gemma 4 is used
 
 ## Why this project matters
 
