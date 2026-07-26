@@ -52,6 +52,14 @@ function getBusinessName() {
   return localStorage.getItem("gemledger_business_name") || "there";
 }
 
+function saveEmail(email) {
+  localStorage.setItem("gemledger_email", email);
+}
+
+function getEmail() {
+  return localStorage.getItem("gemledger_email") || "";
+}
+
 function requireAuth() {
   if (!getToken()) {
     window.location.href = "login.html";
@@ -61,5 +69,6 @@ function requireAuth() {
 function logout() {
   clearToken();
   localStorage.removeItem("gemledger_business_name");
+  localStorage.removeItem("gemledger_email");
   window.location.href = "login.html";
 }

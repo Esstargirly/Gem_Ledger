@@ -1,4 +1,3 @@
-
 requireAuth();
 
 // Greet the user with their business name
@@ -28,12 +27,15 @@ async function submitEntry() {
       body: JSON.stringify({ text }),
     });
 
+    // Expected response shape:
+    // { summary: "You made ₦30,000 profit today...", transactions: [ { type, category, amount, description, date } ] }
+
     if (data.summary && insightCard) {
       insightCard.innerText = data.summary;
     }
 
     if (data.transactions && Array.isArray(data.transactions)) {
-      data.transactions.forEach((tx) => prependRecentRecord(tx));
+      data.transactions.forEach((tx) => prependRecentRecord(tx, true));
     }
 
     journalEntry.value = "";
@@ -53,7 +55,28 @@ if (addEntryBtn) {
 }
 
 // ---- Render a new record row at the top of "Recent Records" ----
-function prependRecentRecord(tx) {
+function formatRecordDate(dateStr) {
+  if (!dateStr) return "Just now";
+
+  const txDate = new Date(dateStr);
+  if (isNaN(txDate)) return dateStr;
+
+  const today = new Date();
+  const yesterday = new Date();
+  yesterday.setDate(today.getDate() - 1);
+
+  const isSameDay = (a, b) =>
+    a.getFullYear() === b.getFullYear() &&
+    a.getMonth() === b.getMonth() &&
+    a.getDate() === b.getDate();
+
+  if (isSameDay(txDate, today)) return "Today";
+  if (isSameDay(txDate, yesterday)) return "Yesterday";
+
+  return txDate.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+}
+
+function prependRecentRecord(tx, isFreshlyAdded = false) {
   if (!recentList) return;
 
   const isIncome = tx.type === "income";
@@ -61,6 +84,7 @@ function prependRecentRecord(tx) {
   const amountPrefix = isIncome ? "+" : "-";
   const iconBg = isIncome ? "bg-secondary-container/20 text-secondary" : "bg-primary-fixed/20 text-primary";
   const icon = isIncome ? "sell" : "shopping_basket";
+  const dateLabel = isFreshlyAdded ? "Just now" : formatRecordDate(tx.date);
 
   const row = document.createElement("div");
   row.className = "bg-surface-container-low rounded-xl p-4 flex items-center justify-between hover:bg-white transition-colors cursor-pointer";
@@ -71,7 +95,7 @@ function prependRecentRecord(tx) {
       </div>
       <div>
         <p class="font-body-md text-on-surface font-medium">${tx.description || tx.category || "Entry"}</p>
-        <p class="font-label-sm text-label-sm text-outline">Just now</p>
+        <p class="font-label-sm text-label-sm text-outline">${dateLabel}</p>
       </div>
     </div>
     <span class="font-headline-sm text-headline-sm ${amountColor}">${amountPrefix} ₦${Number(tx.amount).toLocaleString()}</span>

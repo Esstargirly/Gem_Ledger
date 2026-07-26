@@ -1,11 +1,13 @@
-// settings.js — handles the settings page
-// Expects api.js to be loaded first (uses requireAuth, getBusinessName, logout)
-
 requireAuth();
 
 const businessNameEl = document.getElementById("settings-business-name");
 if (businessNameEl) {
   businessNameEl.innerText = getBusinessName();
+}
+
+const emailEl = document.getElementById("settings-email");
+if (emailEl) {
+  emailEl.innerText = getEmail() || "No email on file";
 }
 
 const logoutBtn = document.getElementById("logout-btn");
