@@ -1,0 +1,65 @@
+const API_BASE_URL = "http://localhost:5000";
+
+  async function apiFetch(path, options = {}) {
+  const token = localStorage.getItem("gemledger_token");
+
+const headers = {
+"Content-Type": "application/json",
+...(options.headers || {}),
+};
+
+if (token) {
+headers["Authorization"] = `Bearer ${token}`;
+}
+
+const response = await fetch(`${API_BASE_URL}${path}`, {
+...options,
+headers,
+});
+
+let data = null;
+try {
+data = await response.json();
+} catch (e) {
+// response had no JSON body
+}
+
+if (!response.ok) {
+const message = (data && data.error) || "Something went wrong. Please try again.";
+throw new Error(message);
+}
+
+return data;
+}
+
+function saveToken(token) {
+localStorage.setItem("gemledger_token", token);
+}
+
+function getToken() {
+return localStorage.getItem("gemledger_token");
+}
+
+function clearToken() {
+localStorage.removeItem("gemledger_token");
+}
+
+function saveBusinessName(name) {
+localStorage.setItem("gemledger_business_name", name);
+}
+
+function getBusinessName() {
+return localStorage.getItem("gemledger_business_name") || "there";
+}
+
+  function requireAuth() {
+  if (!getToken()) {
+  window.location.href = "login.html";
+  }
+  }
+
+function logout() {
+clearToken();
+localStorage.removeItem("gemledger_business_name");
+window.location.href = "login.html";
+}

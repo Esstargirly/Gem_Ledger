@@ -1,0 +1,20 @@
+.env
+.env.local
+backend/.env
+
+# Python
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+
+.DS_Store
+
+.vscode/
+.idea/
+*.swp
+
+*.log

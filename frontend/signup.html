@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign Up | GemLedger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#d7c4a5",
+                    "secondary-fixed": "#cde5ff",
+                    "on-primary-fixed": "#00210e",
+                    "on-tertiary-fixed": "#241a06",
+                    "secondary": "#316289",
+                    "primary-container": "#4a7c59",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#b9efc5",
+                    "surface-dim": "#dbdad5",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c1c9bf",
+                    "surface-tint": "#376847",
+                    "inverse-primary": "#9dd3aa",
+                    "on-primary-fixed-variant": "#1e5031",
+                    "on-secondary-fixed": "#001d32",
+                    "surface-variant": "#e4e2dd",
+                    "surface": "#fbf9f4",
+                    "on-surface": "#1b1c19",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e4e2dd",
+                    "tertiary": "#65573e",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#7f7055",
+                    "on-error": "#ffffff",
+                    "outline": "#717971",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fbf9f4",
+                    "primary": "#316342",
+                    "on-tertiary-container": "#fff6ed",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#a2d1fd",
+                    "on-background": "#1b1c19",
+                    "background": "#fbf9f4",
+                    "secondary-fixed-dim": "#9ccbf8",
+                    "inverse-on-surface": "#f2f1ec",
+                    "on-secondary-container": "#275a81",
+                    "surface-container-high": "#eae8e3",
+                    "on-secondary-fixed-variant": "#114a70",
+                    "primary-fixed-dim": "#9dd3aa",
+                    "surface-container": "#f0eee9",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#f4e0c0",
+                    "inverse-surface": "#30312e",
+                    "on-surface-variant": "#414942",
+                    "surface-container-low": "#f5f3ee",
+                    "on-primary-container": "#e1ffe5",
+                    "on-tertiary-fixed-variant": "#52452d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding-desktop": "40px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "container-padding-mobile": "20px",
+                    "section-gap": "64px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Public Sans"],
+                    "headline-md": ["Quicksand"],
+                    "label-md": ["Public Sans"],
+                    "body-md": ["Public Sans"],
+                    "headline-lg": ["Quicksand"],
+                    "headline-sm": ["Quicksand"],
+                    "headline-lg-mobile": ["Quicksand"],
+                    "body-lg": ["Public Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .soft-card-shadow {
+        box-shadow: 0 10px 30px -5px rgba(49, 99, 66, 0.08);
+      }
+      .floating-bg-element {
+        filter: blur(80px);
+        opacity: 0.4;
+        position: absolute;
+        z-index: -1;
+      }
+      input::placeholder {
+        color: #949a94;
+        opacity: 0.7;
+      }
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<header class="w-full flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop py-4 max-w-7xl mx-auto z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-headline-md">diamond</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">GemLedger</span>
+</div>
+<!-- <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Help</a> -->
+</header>
+<main class="flex-grow flex items-center justify-center relative px-container-padding-mobile py-section-gap">
+<div class="floating-bg-element bg-primary-container w-[400px] h-[400px] top-[-100px] right-[-100px] rounded-full"></div>
+<div class="floating-bg-element bg-secondary-container w-[300px] h-[300px] bottom-[-50px] left-[-100px] rounded-full"></div>
+<div class="w-full max-w-lg">
+<section class="bg-surface-container-lowest soft-card-shadow rounded-xl p-8 md:p-12 border border-surface-variant/20">
+<header class="mb-10 text-center md:text-left">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tight leading-tight">
+                        Let's set up your business
+                    </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3 max-w-xs">
+                        Start your journey to stress-free bookkeeping today.
+                    </p>
+</header>
+
+<!-- Error message banner (hidden by default) -->
+
+<div id="signup-error" class="hidden bg-error-container text-on-error-container rounded-xl px-5 py-3 mb-6 text-sm font-body-md"></div>
+
+<form id="signup-form" class="space-y-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1" for="business_name">Business name</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-low border-none rounded-xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container transition-all duration-300 outline-none placeholder:font-body-md" id="business_name" name="business_name" placeholder="e.g. Blossom Florals" type="text" required/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/30 material-symbols-outlined select-none">storefront</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1" for="email">Email</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-low border-none rounded-xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container transition-all duration-300 outline-none" id="email" name="email" placeholder="hello@example.com" type="email" required/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/30 material-symbols-outlined select-none">mail</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1" for="password">Password</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-low border-none rounded-xl px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container transition-all duration-300 outline-none" id="password" name="password" placeholder="Min. 8 characters" type="password" minlength="8" required/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 hover:text-primary transition-colors" type="button" id="toggle-password">
+<span class="material-symbols-outlined text-[20px]" id="toggle-password-icon">visibility</span>
+</button>
+</div>
+</div>
+<p class="text-[12px] font-body-md text-on-surface-variant px-1 leading-relaxed">
+                        By creating an account, you agree to our <a class="text-primary hover:underline underline-offset-4" href="#">Terms of Service</a> and <a class="text-primary hover:underline underline-offset-4" href="#">Privacy Policy</a>.
+                    </p>
+<div class="pt-2">
+<button type="submit" id="signup-submit" class="w-full bg-primary text-on-primary font-label-md text-label-md py-5 rounded-full shadow-lg shadow-primary/10 hover:shadow-primary/20 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 group">
+<span id="signup-submit-text">Create Account</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+<footer class="mt-8 text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Already have an account?
+                        <a class="text-primary font-bold hover:underline underline-offset-4 ml-1 transition-all" href="login.html">Log in</a>
+</p>
+</footer>
+</section>
+<div class="mt-12 flex items-center justify-center gap-6 px-4">
+<div class="flex flex-col items-center gap-1 opacity-60">
+<span class="material-symbols-outlined text-tertiary">verified_user</span>
+<span class="font-label-sm text-label-sm">Secure Data</span>
+</div>
+<div class="w-px h-8 bg-surface-variant"></div>
+<div class="flex flex-col items-center gap-1 opacity-60">
+<span class="material-symbols-outlined text-tertiary">schedule</span>
+<span class="font-label-sm text-label-sm">2-Min Setup</span>
+</div>
+<div class="w-px h-8 bg-surface-variant"></div>
+<div class="flex flex-col items-center gap-1 opacity-60">
+<span class="material-symbols-outlined text-tertiary">chat_bubble_outline</span>
+<span class="font-label-sm text-label-sm">AI Support</span>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full max-w-7xl mx-auto px-container-padding-mobile md:px-container-padding-desktop py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant/60">
+<span class="font-label-sm text-label-sm">© 2026 GemLedger</span>
+</footer>
+
+<script src="js/api.js"></script>
+
+<script src="js/auth.js"></script>
+
+<script>
+    // Password visibility toggle
+    const toggleBtn = document.getElementById('toggle-password');
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.getElementById('toggle-password-icon');
+
+    toggleBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        toggleIcon.innerText = isPassword ? 'visibility_off' : 'visibility';
+    });
+</script>
+
+</body></html>
