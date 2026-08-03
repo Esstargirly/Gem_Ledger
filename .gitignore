@@ -2,7 +2,6 @@
 .env.local
 backend/.env
 
-# Python
 venv/
 env/
 __pycache__/
