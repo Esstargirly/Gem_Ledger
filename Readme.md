@@ -4,7 +4,7 @@
 
 GemLedger is an AI bookkeeping assistant built for small business owners who don’t have time (or training) for traditional accounting. You type or speak what happened in your business today — what you sold, what you bought — and [Gemma 4](https://ai.google.dev/gemma) turns it into structured financial records automatically.
 
-Built for the CruzHacks Gemma 4 Hackathon.
+Built for the Gemma 4 Hackathon.
 
 Live app link: https://gem-ledger-frontend.onrender.com
 
@@ -109,7 +109,7 @@ gemledger/
 
 ## License
 
-Built for the CruzHacks Gemma 4 Hackathon, 2026.
+Built for the Gemma 4 Hackathon, 2026.
 
 
 
