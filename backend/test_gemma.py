@@ -1,11 +1,3 @@
-"""
-Quick test script — run this to see exactly what's going wrong with the Gemma call,
-without needing to dig through browser dev tools.
-
-Usage (from the backend/ folder, with venv activated):
-    python test_gemma.py
-"""
-
 import os
 from dotenv import load_dotenv
 
@@ -19,12 +11,12 @@ print("Checking your setup...")
 print("=" * 60)
 
 if not api_key or api_key == "your-google-ai-studio-api-key":
-    print("❌ GOOGLE_AI_STUDIO_KEY is missing or still the placeholder value.")
+    print(" GOOGLE_AI_STUDIO_KEY is missing or still the placeholder value.")
     print("   Go to https://aistudio.google.com/apikey, create a key,")
     print("   and paste it into your .env file.")
     exit(1)
 else:
-    print(f"✅ Found an API key (starts with: {api_key[:6]}...)")
+    print(f"Found an API key (starts with: {api_key[:6]}...)")
 
 print()
 print("Calling Gemma with a test message...")
