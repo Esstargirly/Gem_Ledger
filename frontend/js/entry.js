@@ -12,7 +12,7 @@ const insightCard = document.getElementById("insight-text");
 const recentList = document.getElementById("recent-records-list");
 const micBtn = document.getElementById("mic-btn");
 
-// ---- ADD ENTRY (calls Gemma via backend) ----
+// ADD ENTRY (calls Gemma via backend) 
 async function submitEntry() {
   const text = journalEntry.value.trim();
   if (!text) return;
@@ -54,7 +54,7 @@ if (addEntryBtn) {
   addEntryBtn.addEventListener("click", submitEntry);
 }
 
-// ---- Render a new record row at the top of "Recent Records" ----
+// Render a new record row at the top of "Recent Records"
 function formatRecordDate(dateStr) {
   if (!dateStr) return "Just now";
 
@@ -104,7 +104,7 @@ function prependRecentRecord(tx, isFreshlyAdded = false) {
   recentList.prepend(row);
 }
 
-// ---- Load recent records on page load ----
+// Load recent records on page load
 async function loadRecentRecords() {
   if (!recentList) return;
   try {
@@ -121,7 +121,7 @@ async function loadRecentRecords() {
 
 loadRecentRecords();
 
-// ---- Voice input (Web Speech API) ----
+// Voice input (Web Speech API)
 let isListening = false;
 let recognition = null;
 
@@ -173,7 +173,6 @@ if (SpeechRecognition && micBtn) {
     }
   });
 } else if (micBtn) {
-  // Browser doesn't support voice input (e.g. Safari) — hide the mic button gracefully
   micBtn.title = "Voice input isn't supported in this browser. Try Chrome.";
   micBtn.addEventListener("click", () => {
     alert("Voice input works best in Chrome. Please type your entry instead.");
@@ -198,7 +197,7 @@ function setMicListeningState(listening) {
   }
 }
 
-// ---- Textarea auto-expand ----
+//Textarea auto-expand
 if (journalEntry) {
   journalEntry.addEventListener("input", function () {
     this.style.height = "auto";

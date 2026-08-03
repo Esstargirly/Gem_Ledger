@@ -20,7 +20,7 @@ function setButtonLoading(buttonId, textId, isLoading, loadingText, defaultText)
   button.classList.toggle("opacity-70", isLoading);
 }
 
-// ---- SIGN UP ----
+// Sign up
 const signupForm = document.getElementById("signup-form");
 if (signupForm) {
   signupForm.addEventListener("submit", async (e) => {
@@ -60,7 +60,7 @@ if (signupForm) {
   });
 }
 
-// ---- LOG IN ----
+// Log in
 const loginForm = document.getElementById("login-form");
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {

@@ -1,6 +1,3 @@
-// records.js — handles the records/transactions page
-// Expects api.js to be loaded first (uses apiFetch, requireAuth, logout)
-
 requireAuth();
 
 const tableBody = document.getElementById("records-table-body");
@@ -139,7 +136,7 @@ if (loadMoreBtn) {
   });
 }
 
-// ---- Export PDF ----
+// Export PDF
 const exportPdfBtn = document.getElementById("export-pdf-btn");
 if (exportPdfBtn) {
   exportPdfBtn.addEventListener("click", () => {
@@ -199,7 +196,5 @@ if (exportPdfBtn) {
     doc.save(`gemledger-records-${new Date().toISOString().slice(0, 10)}.pdf`);
   });
 }
-
-// Logout now lives on settings.html, not this page.
 
 loadTransactions();
